@@ -8,7 +8,9 @@ An educational project for making a bookstore by implementing React and Redux.
 
 ## Live Demo
 
-[Live Demo](https://jerryowusu.github.io/bookstore/)
+[Github Demo](https://jerryowusu.github.io/bookstore/)
+
+[Heroku Demo](https://jbook-store.herokuapp.com/categories)
 
 ## Built With!
 - JavaScript.
