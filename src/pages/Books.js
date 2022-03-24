@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-const Home = () => (
+const Books = () => (
   <Route path="/">
     <div>Books</div>
   </Route>
 );
 
-export default Home;
+export default Books;

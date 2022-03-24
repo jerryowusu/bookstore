@@ -21,8 +21,6 @@ body {
 .navbar {
   display: flex;
   justify-content: space-between;
-
-  /* width: 94%; */
   margin-left: 3%;
   margin-top: 4%;
   margin-bottom: 20%;
@@ -30,10 +28,14 @@ body {
 
 .navbar ul {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .navlink {
   list-style-type: none;
   margin: 5%;
+}
+
+.form {
+  margin-top: 10%;
 }
