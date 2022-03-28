@@ -1,5 +1,5 @@
-const ADD_BOOKS = 'ADD BOOKS';
-const REMOVE_BOOKS = 'REMOVE BOOKS';
+const ADD_BOOKS = 'ADD_BOOKS';
+const REMOVE_BOOKS = 'REMOVE_BOOKS';
 
 const INITIAL_STATE = {
   books: [],
@@ -21,5 +21,10 @@ const booksReducer = (state = INITIAL_STATE, action) => {
       return state;
   }
 };
+
+export const setBooks = (books) => ({
+  type: ADD_BOOKS,
+  payload: books,
+});
 
 export default booksReducer;
