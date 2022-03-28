@@ -1,8 +1,8 @@
-const CHECK_STATUS = 'CHECK_STATUS';
+const CHECK_STATUS = 'bookstore/categories/CHECK_STATUS';
 
-export const setCategories = (categories) => ({
+export const checkStatus = ({ id }) => ({
   type: CHECK_STATUS,
-  payload: categories,
+  payload: id,
 });
 
 const categoriesReducer = (state = [], action) => {
