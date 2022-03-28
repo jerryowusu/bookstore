@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Book = ({ name, author, category }) => (
 
-  <div className="book-card">
+  <div className="book-card bg-yellow-300 shadow-xl rounded-xl p-8 m-6">
     <div className="main-part">
       <h4 className="category">{category}</h4>
       <h2 className="book-name">{name}</h2>
