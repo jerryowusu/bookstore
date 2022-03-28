@@ -22,8 +22,13 @@ const booksReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export const setBooks = (books) => ({
+export const setAddBooks = (books) => ({
   type: ADD_BOOKS,
+  payload: books,
+});
+
+export const setRemoveBooks = (books) => ({
+  type: REMOVE_BOOKS,
   payload: books,
 });
 
