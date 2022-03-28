@@ -1,10 +1,12 @@
+const UNDER_CONSTRUCTION = 'UNDER_CONSTRUCTION';
+
 const INITIAL_STATE = {
   categories: [],
 };
 
 const categoriesReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'UNDER CONSTRUCTION':
+    case UNDER_CONSTRUCTION:
       return {
         ...state,
         categories: action.payload,
@@ -14,7 +16,9 @@ const categoriesReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-// action creators
-// export const underConstruction = (payload) => ({});
+export const setCategories = (categories) => ({
+  type: UNDER_CONSTRUCTION,
+  payload: categories,
+});
 
 export default categoriesReducer;
