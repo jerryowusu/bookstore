@@ -1,7 +1,7 @@
 const ADD_BOOK = 'bookstore/books/ADD';
 const REMOVE_BOOK = 'bookstore/books/REMOVE';
 
-export const addBooks = ({ name, category, author}) => ({
+export const addBooks = ({ name, category, author }) => ({
   type: ADD_BOOK,
   id: Date.now(),
   name,
