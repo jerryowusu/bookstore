@@ -3,14 +3,18 @@ import PropTypes from 'prop-types';
 import Book from './Book';
 
 const Books = ({ books }) => {
-  const booklists = books.map((book) => (
-    <Book
-      key={book.id}
-      name={book.name}
-      author={book.author}
-      category={book.category}
-    />
-  ));
+  const booklists = books.map((book) => {
+    const key = book.id;
+    return (
+      <Book
+        key={key}
+        id={book.id}
+        name={book.name}
+        author={book.author}
+        category={book.category}
+      />
+    );
+  });
 
   return (
     booklists
@@ -22,6 +26,10 @@ Books.propTypes = {
   name: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
+};
+
+Books.defaultProps = {
+  books: [],
 };
 
 export default Books;
