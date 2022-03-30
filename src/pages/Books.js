@@ -1,10 +1,17 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import Books from '../components/Books';
+import Form from '../components/Form';
 
-const Books = () => (
-  <Route path="/">
-    <div>Books</div>
-  </Route>
-);
+const Page = () => {
+  const books = useSelector((state) => state.books);
 
-export default Books;
+  return (
+    <>
+      <Books books={books} />
+      <Form />
+    </>
+  );
+};
+
+export default Page;
