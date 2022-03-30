@@ -5,12 +5,14 @@ import { removeBooks } from '../redux/books/Books';
 
 const BookCard = (props) => {
   const dispatch = useDispatch();
-  const { id, name, author } = props;
+  const { id, title, author } = props;
   return (
-    <li className="card">
-      {name}
-      -
-      {author}
+    <li className="">
+      <div className="px-6 py-4 m-1">
+        {title}
+        -
+        {author}
+      </div>
       <button
         type="button"
         onClick={() => {
@@ -25,7 +27,7 @@ const BookCard = (props) => {
 
 BookCard.propTypes = {
   id: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
 };
 

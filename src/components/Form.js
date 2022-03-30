@@ -21,10 +21,9 @@ const Form = () => {
     <div className="main">
       <h2 className="description">Add New Book</h2>
       <form
-        className="form"
+        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
         onSubmit={(e) => {
           e.preventDefault();
-          console.log(bookTitle, bookAuthor);
           dispatch(addBooks({
             title: bookTitle.trim(),
             author: bookAuthor.trim(),
@@ -34,6 +33,7 @@ const Form = () => {
         }}
       >
         <input
+          className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           type="text"
           name="title"
           value={bookTitle}
@@ -42,6 +42,7 @@ const Form = () => {
           required
         />
         <input
+          className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           type="text"
           name="author"
           value={bookAuthor}
@@ -50,6 +51,7 @@ const Form = () => {
           required
         />
         <select
+          className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           name="category"
         >
           <option value="">Select a Category </option>
@@ -59,7 +61,12 @@ const Form = () => {
           <option value="Biography">Biography</option>
           <option value="Religion">Religion</option>
         </select>
-        <button type="submit">Add Book</button>
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="submit"
+        >
+          Add Book
+        </button>
       </form>
     </div>
   );

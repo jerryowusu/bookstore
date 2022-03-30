@@ -8,9 +8,8 @@ const Books = (props) => {
     <BookCard
       key={book.id}
       id={book.id}
-      name={book.title}
+      title={book.title}
       author={book.author}
-      // category={book.category}
     />
   ));
   return (
@@ -22,7 +21,6 @@ Books.propTypes = {
   books: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-    // category: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
   }).isRequired).isRequired,
 };
