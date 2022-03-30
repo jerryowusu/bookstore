@@ -3,16 +3,16 @@ import { useDispatch } from 'react-redux';
 import { addBooks } from '../redux/books/Books';
 
 const Form = () => {
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
+  const [bookTitle, setBookTitle] = useState('');
+  const [bookAuthor, setBookAuthor] = useState('');
 
   const updateTitle = (e) => {
     e.preventDefault();
-    setTitle(e.target.value);
+    setBookTitle(e.target.value);
   };
 
   const updateAuthor = (e) => {
-    setAuthor(e.target.value);
+    setBookAuthor(e.target.value);
   };
 
   const dispatch = useDispatch();
@@ -25,17 +25,17 @@ const Form = () => {
         onSubmit={(e) => {
           e.preventDefault();
           dispatch(addBooks({
-            title: title.trim(),
-            author: author.trim(),
+            title: bookTitle.trim(),
+            author: bookAuthor.trim(),
           }));
-          setTitle('');
-          setAuthor('');
+          setBookTitle('');
+          setBookAuthor('');
         }}
       >
         <input
           type="text"
           name="title"
-          value={title}
+          value={bookTitle}
           placeholder="Title"
           onChange={updateTitle}
           required
@@ -43,7 +43,7 @@ const Form = () => {
         <input
           type="text"
           name="author"
-          value={author}
+          value={bookAuthor}
           placeholder="Author"
           onChange={updateAuthor}
           required

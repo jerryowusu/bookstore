@@ -10,7 +10,7 @@ const BookCard = ({
     <div className="book-card bg-yellow-300 shadow-xl rounded-xl p-8 m-6">
       <div className="main-part">
         <h4 className="category">{category}</h4>
-        <h2 className="book-name">{name}</h2>
+        <h1 className="book-name">{name}</h1>
         <p className="author">{author}</p>
         <li className="main-btns">
           <button type="button" className="comment-btn btn">Comments</button>
