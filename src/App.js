@@ -1,9 +1,7 @@
-import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Books from './components/Books';
-import Form from './components/Form';
-import Categories from './pages/Categories';
 import NavBar from './components/NavBar';
+import BooksPage from './pages/BooksPage';
+import CategoriesPage from './pages/CategoriesPage';
 import './App.css';
 
 function App() {
@@ -12,13 +10,10 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/">
-          <div className="App">
-            <Books />
-            <Form />
-          </div>
+          <BooksPage />
         </Route>
         <Route path="/categories">
-          <Categories />
+          <CategoriesPage />
         </Route>
       </Switch>
     </>

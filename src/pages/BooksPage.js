@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Books from '../components/Books';
 import Form from '../components/Form';
 
-const Page = () => {
+const BooksPage = () => {
   const books = useSelector((state) => state.books);
 
   return (
@@ -14,4 +14,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default BooksPage;

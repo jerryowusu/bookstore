@@ -1,69 +1,55 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBooks } from '../redux/books/books';
+import { addBooks } from '../redux/books/Books';
 
 const Form = () => {
-  let inputName;
-  let inputAuthor;
-  let inputCategory;
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+
+  const updateTitle = (e) => {
+    e.preventDefault();
+    setTitle(e.target.value);
+  };
+
+  const updateAuthor = (e) => {
+    setAuthor(e.target.value);
+  };
 
   const dispatch = useDispatch();
-
-  const [state, setState] = useState({
-    name: 'Jerry',
-    category: 'love',
-    author: 'Jerry',
-  });
 
   return (
     <div className="main">
       <h2 className="description">Add New Book</h2>
       <form
-        action=""
         className="form"
         onSubmit={(e) => {
           e.preventDefault();
-          if (!inputName.value.trim() || !inputCategory.value.trim() || !inputAuthor.value.trim()) {
-            return;
-          }
-          dispatch(addBooks(state));
-          inputName.value = '';
-          inputCategory.value = '';
+          dispatch(addBooks({
+            title: title.trim(),
+            author: author.trim(),
+          }));
+          setTitle('');
+          setAuthor('');
         }}
       >
         <input
           type="text"
+          name="title"
+          value={title}
           placeholder="Title"
-          ref={(node) => { inputName = node; }}
-          onChange={(e) => {
-            const State = {
-              ...state,
-              name: e.target.value,
-            };
-            setState(State);
-          }}
+          onChange={updateTitle}
+          required
         />
         <input
           type="text"
+          name="author"
+          value={author}
           placeholder="Author"
-          ref={(node) => { inputAuthor = node; }}
-          onChange={(e) => {
-            const State = {
-              ...state,
-              name: e.target.value,
-            };
-            setState(State);
-          }}
+          onChange={updateAuthor}
+          required
         />
         <select
-          ref={(node) => { inputCategory = node; }}
-          onChange={(e) => {
-            const State = {
-              ...state,
-              name: e.target.value,
-            };
-            setState(State);
-          }}
+          name="category"
         >
           <option value="">Select a Category </option>
           <option value="Fiction">Fiction</option>
@@ -72,6 +58,7 @@ const Form = () => {
           <option value="Biography">Biography</option>
           <option value="Religion">Religion</option>
         </select>
+        <button type="submit">Add Book</button>
       </form>
     </div>
   );
