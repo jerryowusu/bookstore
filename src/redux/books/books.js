@@ -1,33 +1,31 @@
 const ADD_BOOK = 'bookstore/books/ADD';
 const REMOVE_BOOK = 'bookstore/books/REMOVE';
 
-export const addBooks = ({ name, category, author }) => ({
+const randomID = () => Math.round(Math.random() * 10000);
+
+export const initialState = [];
+
+export const addBooks = (data) => ({
   type: ADD_BOOK,
-  id: Date.now(),
-  name,
-  category,
-  author,
+  payload: {
+    ...data,
+    id: randomID(),
+  },
 });
 
 export const removeBooks = (id) => ({
   type: REMOVE_BOOK,
-  payload: id,
+  payload: {
+    id,
+  },
 });
 
-const booksReducer = (state = [], action) => {
+const booksReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_BOOK:
-      return [
-        ...state,
-        {
-          id: action.id,
-          name: action.name,
-          category: action.category,
-          author: action.author,
-        },
-      ];
+      return [...state, action.payload];
     case REMOVE_BOOK:
-      return state.filter((book) => book.id !== action.id);
+      return state.filter((book) => book.id !== action.payload.id);
     default:
       return state;
   }
