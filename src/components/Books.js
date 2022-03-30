@@ -1,10 +1,10 @@
 import React from 'react';
-import Book from './Book';
+import BookCard from './BookCard';
 
 const Books = () => (
   <>
-    <Book name="Rich Dad Poor Dad" author="Robert Kiyosaki" category="Business" />
-    <Book name="Happiness is a Choice" author="Robert Jerry Owusu" category="Business" />
+    <BookCard name="Rich Dad Poor Dad" author="Robert Kiyosaki" category="Business" />
+    <BookCard name="Happiness is a Choice" author="Robert Jerry Owusu" category="Business" />
   </>
 
 );
