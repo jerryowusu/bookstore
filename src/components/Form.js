@@ -24,6 +24,7 @@ const Form = () => {
         className="form"
         onSubmit={(e) => {
           e.preventDefault();
+          console.log(bookTitle, bookAuthor);
           dispatch(addBooks({
             title: bookTitle.trim(),
             author: bookAuthor.trim(),
