@@ -10,6 +10,7 @@ const Books = (props) => {
       item_id={book.item_id}
       title={book.title}
       author={book.author}
+      category={book.category}
     />
   ));
   return (
@@ -22,6 +23,7 @@ Books.propTypes = {
     item_id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
   }).isRequired).isRequired,
 };
 

@@ -9,6 +9,8 @@ const BookCard = (props) => {
     item_id, title, author, category,
   } = props;
 
+  console.log(props);
+
   const dispatch = useDispatch();
   const bookRemove = () => dispatch(removeBooksFromAPI(item_id));
 
