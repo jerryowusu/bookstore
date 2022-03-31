@@ -1,21 +1,22 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import removeBooksFromAPI from '../API/removeBooksFromApi';
 
-const BookCard = ({ book }) => {
+const BookCard = (props) => {
   const {
-    id, title, author, category,
-  } = book;
+    item_id, title, author, category,
+  } = props;
 
   const dispatch = useDispatch();
-  const bookRemove = () => dispatch(removeBooksFromAPI(id));
+  const bookRemove = () => dispatch(removeBooksFromAPI(item_id));
 
   return (
     <div className="book">
+      <div className="book-category">{category}</div>
       <div className="book-author">{author}</div>
       <div className="book-tittle">{title}</div>
-      <div className="book-category">{category}</div>
       <div className="buttons">
         <button type="button" className="comments-btn">Comments</button>
         <button
@@ -33,9 +34,10 @@ const BookCard = ({ book }) => {
 };
 
 BookCard.propTypes = {
-  category: PropTypes.string.isRequired,
+  item_id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  book: PropTypes.arrayOf.isRequired,
+  author: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
 };
 
 export default BookCard;
