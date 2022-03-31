@@ -22,12 +22,10 @@ const Form = () => {
     setBookCategory(e.target.value);
   };
 
-  const id = uuidv4();
-
   const addBookToStore = (e) => {
     e.preventDefault();
     const newBook = {
-      item_id: id,
+      item_id: uuidv4(),
       title: bookTitle,
       category: bookCategory,
       author: bookAuthor,
