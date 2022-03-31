@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeBooksFromAPI } from '../API/removeBooksFromAPI';
+import removeBooksFromAPI from '../API/removeBooksFromApi';
 
 const BookCard = ({ book }) => {
   const {
-    item_id: id, title, author, category,
+    id, title, author, category,
   } = book;
 
   const dispatch = useDispatch();
