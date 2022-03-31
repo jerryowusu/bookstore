@@ -1,34 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeBooks } from '../redux/books/books';
+import { removeBooksFromAPI } from '../API/removeBooksFromAPI';
 
-const BookCard = (props) => {
+const BookCard = ({ book }) => {
+  const {
+    item_id: id, title, author, category,
+  } = book;
+
   const dispatch = useDispatch();
-  const { id, title, author } = props;
+  const bookRemove = () => dispatch(removeBooksFromAPI(id));
+
   return (
-    <li className="">
-      <div className="px-6 py-4 m-1">
-        {title}
-        -
-        {author}
+    <div className="book">
+      <div className="book-author">{author}</div>
+      <div className="book-tittle">{title}</div>
+      <div className="book-category">{category}</div>
+      <div className="buttons">
+        <button type="button" className="comments-btn">Comments</button>
+        <button
+          type="submit"
+          onClick={bookRemove}
+          className="remove-btn"
+        >
+          Remove
+
+        </button>
+        <button type="button" className="edit-btn">Edit</button>
       </div>
-      <button
-        type="button"
-        onClick={() => {
-          dispatch(removeBooks(id));
-        }}
-      >
-        Remove
-      </button>
-    </li>
+    </div>
   );
 };
 
 BookCard.propTypes = {
-  id: PropTypes.number.isRequired,
+  category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
+  book: PropTypes.arrayOf.isRequired,
 };
 
 export default BookCard;
