@@ -6,10 +6,9 @@ import { getBooks } from '../redux/books/books';
 const Books = () => {
   const books = useSelector((state) => state.books);
   const dispatch = useDispatch();
-  dispatch(getBooks());
 
   useEffect(() => {
-    dispatch();
+    dispatch(getBooks());
   }, []);
 
   if (books.length) {
