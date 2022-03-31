@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { removeBooks } from '../redux/books/books';
 
 export const removeBookFromAPI = (id) => async (dispatch) => (

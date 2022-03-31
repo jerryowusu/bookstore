@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const ADD_BOOK = 'bookstore/books/ADD';
 const REMOVE_BOOK = 'bookstore/books/REMOVE';
 const GET_BOOKS = 'bookstore/books/GET_BOOKS';
@@ -14,10 +15,10 @@ export const addBooks = (data) => ({
   },
 });
 
-export const removeBooks = (id) => ({
+export const removeBooks = (item_id) => ({
   type: REMOVE_BOOK,
   payload: {
-    id,
+    item_id,
   },
 });
 
@@ -36,7 +37,7 @@ const booksReducer = (state = initialState, action) => {
     case GET_BOOKS:
       return [...state, action.payload];
     case REMOVE_BOOK:
-      return state.filter((book) => book.id !== action.payload.id);
+      return state.filter((book) => book.item_id !== action.payload.item_id);
     default:
       return state;
   }
