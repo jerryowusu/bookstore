@@ -4,19 +4,15 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import removeBooksFromAPI from '../API/removeBooksFromApi';
 
-const BookCard = (props) => {
-  const {
-    item_id, title, author, category,
-  } = props;
-
+const BookCard = ({ book }) => {
   const dispatch = useDispatch();
-  const bookRemove = () => dispatch(removeBooksFromAPI(item_id));
+  const bookRemove = () => dispatch(removeBooksFromAPI(book.item_id));
 
   return (
     <div className="book">
-      <div className="book-category">{category}</div>
-      <div className="book-author">{author}</div>
-      <div className="book-tittle">{title}</div>
+      <div className="book-category">{book.category}</div>
+      <div className="book-author">{book.author}</div>
+      <div className="book-tittle">{book.title}</div>
       <div className="buttons">
         <button type="button" className="comments-btn">Comments</button>
         <button
@@ -34,10 +30,12 @@ const BookCard = (props) => {
 };
 
 BookCard.propTypes = {
-  item_id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
+  book: PropTypes.shape({
+    item_id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default BookCard;
