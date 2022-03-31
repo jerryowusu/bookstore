@@ -1,34 +1,41 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeBooks } from '../redux/books/books';
+import removeBooksFromAPI from '../API/removeBooksFromApi';
 
-const BookCard = (props) => {
+const BookCard = ({ book }) => {
   const dispatch = useDispatch();
-  const { id, title, author } = props;
+  const bookRemove = () => dispatch(removeBooksFromAPI(book.item_id));
+
   return (
-    <li className="">
-      <div className="px-6 py-4 m-1">
-        {title}
-        -
-        {author}
+    <div className="max-w-sm rounded overflow-hidden shadow-lg my-20">
+      <div className="book-category">{book.category}</div>
+      <div className="book-author">{book.author}</div>
+      <div className="book-tittle">{book.title}</div>
+      <div className="buttons">
+        <button type="button" className="comments-btn">Comments</button>
+        <button
+          type="submit"
+          onClick={bookRemove}
+          className="remove-btn mx-5"
+        >
+          Remove
+
+        </button>
+        <button type="button" className="edit-btn">Edit</button>
       </div>
-      <button
-        type="button"
-        onClick={() => {
-          dispatch(removeBooks(id));
-        }}
-      >
-        Remove
-      </button>
-    </li>
+    </div>
   );
 };
 
 BookCard.propTypes = {
-  id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
+  book: PropTypes.shape({
+    item_id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default BookCard;
