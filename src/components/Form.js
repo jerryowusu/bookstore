@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBooks } from '../redux/books/books';
+import { v4 as uuidv4 } from 'uuid';
+import { addBooksToAPI } from '../API/addBooksToAPI';
 
 const Form = () => {
   const [bookTitle, setBookTitle] = useState('');
   const [bookAuthor, setBookAuthor] = useState('');
+  const [bookCategory, setBookCategory] = useState('');
+  const dispatch = useDispatch();
 
   const updateTitle = (e) => {
     e.preventDefault();
@@ -15,7 +18,25 @@ const Form = () => {
     setBookAuthor(e.target.value);
   };
 
-  const dispatch = useDispatch();
+  const updateCategory = (e) => {
+    setBookCategory(e.target.value);
+  };
+
+  const id = uuidv4();
+
+  const addBookToStore = () => {
+    // e.preventDefault();
+    const newBook = {
+      item_id: id,
+      title: bookTitle,
+      category: bookCategory,
+    };
+    dispatch(addBooksToAPI(newBook));
+
+    setBookTitle('');
+    setBookAuthor('');
+    setBookCategory('');
+  };
 
   return (
     <div className="main">
@@ -24,12 +45,13 @@ const Form = () => {
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
         onSubmit={(e) => {
           e.preventDefault();
-          dispatch(addBooks({
+          dispatch(addBookToStore({
             title: bookTitle.trim(),
             author: bookAuthor.trim(),
           }));
           setBookTitle('');
           setBookAuthor('');
+          setBookCategory('');
         }}
       >
         <input
@@ -53,6 +75,8 @@ const Form = () => {
         <select
           className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           name="category"
+          value={bookCategory}
+          onChange={updateCategory}
         >
           <option value="">Select a Category </option>
           <option value="Fiction">Fiction</option>
