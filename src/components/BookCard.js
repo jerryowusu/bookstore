@@ -9,7 +9,7 @@ const BookCard = ({ book }) => {
   const bookRemove = () => dispatch(removeBooksFromAPI(book.item_id));
 
   return (
-    <div className="book">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg my-20">
       <div className="book-category">{book.category}</div>
       <div className="book-author">{book.author}</div>
       <div className="book-tittle">{book.title}</div>
@@ -18,7 +18,7 @@ const BookCard = ({ book }) => {
         <button
           type="submit"
           onClick={bookRemove}
-          className="remove-btn"
+          className="remove-btn mx-5"
         >
           Remove
 
