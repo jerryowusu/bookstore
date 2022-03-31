@@ -1,34 +1,37 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import BookCard from './BookCard';
+import { getBooks } from '../redux/books/books';
 
-const Books = (props) => {
-  const { books } = props;
-  const booklists = books.map((book) => (
-    <BookCard
-      key={book.item_id}
-      item_id={book.item_id}
-      title={book.title}
-      author={book.author}
-      category={book.category}
-    />
-  ));
+const Books = () => {
+  const books = useSelector((state) => state.books);
+  const dispatch = useDispatch();
+  dispatch(getBooks());
+
+  useEffect(() => {
+    dispatch();
+  }, []);
+
+  if (books.length) {
+    return (
+      <div className="books">
+        {books.map((book) => (
+          <BookCard
+            // author={book.author}
+            // title={book.title}
+            // category={book.category}
+            key={book.item_id}
+            book={book}
+          />
+        ))}
+      </div>
+    );
+  }
   return (
-    booklists
+    <div className="nobook">
+      <h2>No books to show</h2>
+    </div>
   );
-};
-
-Books.propTypes = {
-  books: PropTypes.arrayOf(PropTypes.shape({
-    item_id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-    category: PropTypes.string.isRequired,
-  }).isRequired).isRequired,
-};
-
-Books.defaultProps = {
-  books: [],
 };
 
 export default Books;
