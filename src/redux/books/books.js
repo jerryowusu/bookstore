@@ -1,4 +1,6 @@
+/* eslint-disable camelcase */
 const ADD_BOOK = 'bookstore/books/ADD';
+const BOOK_REMOVED = 'bookstore/books/REMOVED';
 const REMOVE_BOOK = 'bookstore/books/REMOVE';
 const GET_BOOKS = 'bookstore/books/GET_BOOKS';
 const GOT_BOOKS = 'bookstore/books/GOT_BOOKS';
@@ -15,12 +17,31 @@ export const addBooks = (data) => ({
   },
 });
 
-export const removeBooks = (id) => ({
-  type: REMOVE_BOOK,
+export const bookRemoved = (id) => ({
+  type: BOOK_REMOVED,
   payload: {
     id,
   },
 });
+
+export const removeBooks = (id) => (dispatch) => {
+  let URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/BqnHKAz15jWN0WeykxBg/books/';
+  URL += id;
+  const options = {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      book_id: id,
+    }),
+  };
+
+  fetch(URL, options)
+    .then((res) => {
+      if (res.status === 201) dispatch(bookRemoved(id));
+    });
+};
 
 export const gotBooks = (books) => ({
   type: GOT_BOOKS,
@@ -53,8 +74,10 @@ const booksReducer = (state = initialState, action) => {
       return [...state, ...action.payload.books];
     case GET_BOOKS:
       return getBooks();
-    case REMOVE_BOOK:
+    case BOOK_REMOVED:
       return state.filter((book) => book.id !== action.payload.id);
+    case REMOVE_BOOK:
+      return removeBooks(action.payload.id);
     default:
       return state;
   }
