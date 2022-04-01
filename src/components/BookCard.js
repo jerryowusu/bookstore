@@ -14,21 +14,21 @@ const BookCard = ({ book }) => {
         <div className="flex flex-col gap-0">
           <div className="font-bold text-sm text-black-two opacity-50">{book.category}</div>
           <div className="text-xl font-bold font-roboto">{book.title}</div>
-          <div className="text-sm font-light text-azure font-roboto">{book.author}</div>
+          <div className="text-sm font-light text-[#4386bf] text-azure font-roboto">{book.author}</div>
         </div>
         <div className="flex gap-2 justify-center items-center">
-          <button type="button" className="text-sm font-light text-azure font-roboto cursor-pointer">Comments</button>
+          <button type="button" className="text-sm text-[#4386bf] font-light text-azure font-roboto cursor-pointer">Comments</button>
           <span className="text-grey-border">|</span>
           <button
             type="submit"
             onClick={bookRemove}
-            className="text-sm font-light text-azure font-roboto cursor-pointer"
+            className="text-sm text-[#4386bf] font-light text-azure font-roboto cursor-pointer"
           >
             Remove
 
           </button>
           <span className="text-grey-border">|</span>
-          <button type="button" className="text-sm font-light text-azure font-roboto cursor-pointer">Edit</button>
+          <button type="button" className="text-sm text-[#4386bf] font-light text-azure font-roboto cursor-pointer">Edit</button>
         </div>
       </div>
       <div className="border-r flex justify-center items-center gap-4 self-center">
