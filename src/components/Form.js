@@ -38,14 +38,14 @@ const Form = () => {
   };
 
   return (
-    <div className="main">
-      <h2 className="description">Add New Book</h2>
+    <div className="flex flex-col gap-4 ">
+      <h2 className="font-bold text-lg text-gray-500">Add New Book</h2>
       <form
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        className="flex items-center flex-wrap gap-3"
         onSubmit={addBookToStore}
       >
         <input
-          className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="border rounded bg-white grow px-3 py-2"
           type="text"
           name="title"
           value={bookTitle}
@@ -54,7 +54,7 @@ const Form = () => {
           required
         />
         <input
-          className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="border rounded bg-white grow px-3 py-2"
           type="text"
           name="author"
           value={bookAuthor}
@@ -63,7 +63,7 @@ const Form = () => {
           required
         />
         <select
-          className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="border rounded bg-white grow px-3 min-w-[12] py-2"
           name="category"
           value={bookCategory}
           onChange={updateCategory}
@@ -76,7 +76,7 @@ const Form = () => {
           <option value="Religion">Religion</option>
         </select>
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="w-45 h-12 px-4 grid place-content-center font-serif border rounded bg-blue-500 text-white uppercase text-sm font-bold"
           type="submit"
         >
           Add Book

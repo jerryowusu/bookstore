@@ -11,8 +11,8 @@ const BookCard = ({ book }) => {
   return (
     <div className="card">
       <div className="book-category">{book.category}</div>
+      <div className="book-title">{book.title}</div>
       <div className="book-author">{book.author}</div>
-      <div className="book-tittle">Jerry Owusu</div>
       <div className="buttons">
         <button type="button" className="comments-btn">Comments</button>
         <button
