@@ -9,12 +9,12 @@ const BookCard = ({ book }) => {
   const bookRemove = () => dispatch(removeBooksFromAPI(book.item_id));
 
   return (
-    <li className="flex flex-col gap-12 items-center bg-white w-fit  md:w-full  md:flex-row justify-between rounded-sm my-1 px-7 py-8 shadow-md">
+    <li className="flex flex-col flex-wrap gap-4 items-center bg-white w-fit  md:w-full  md:flex-row justify-between rounded-sm my-1 px-7 py-8 shadow-md">
       <div className="flex flex-col gap-6 justify-between items-start w-72">
         <div className="flex flex-col gap-0">
-          <div className="font-bold text-sm text-black-two opacity-50">{book.category}</div>
-          <div className="text-xl font-bold font-roboto">{book.title}</div>
-          <div className="text-sm font-light text-[#4386bf] text-azure font-roboto">{book.author}</div>
+          <div className="font-bold text-sm text-black-two opacity-50 capitalize">{book.category}</div>
+          <div className="text-xl font-bold font-roboto capitalize">{book.title}</div>
+          <div className="text-sm font-light text-[#4386bf] text-azure font-roboto capitalize">{book.author}</div>
         </div>
         <div className="flex gap-2 justify-center items-center">
           <button type="button" className="text-sm text-[#4386bf] font-light text-azure font-roboto cursor-pointer">Comments</button>
@@ -31,7 +31,7 @@ const BookCard = ({ book }) => {
           <button type="button" className="text-sm text-[#4386bf] font-light text-azure font-roboto cursor-pointer">Edit</button>
         </div>
       </div>
-      <div className="border-r flex justify-center items-center gap-4 self-center">
+      <div className="border-r pr-12 flex justify-center items-center gap-4 self-center ">
         <svg className="w-20" fill="none" stroke="currentColor" strokeWidth="7" viewBox="0 0 100 100">
           <path className="text-gray-200" strokeDasharray="250,0" d="M50 10a40 40 0 0 1 0 80 40 40 0 0 1 0-80" />
           <path className="text-blue-500" strokeDasharray="180,180" d="M50 10a40 40 0 0 1 0 80 40 40 0 0 1 0-80" />
