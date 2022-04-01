@@ -9,7 +9,7 @@ const BookCard = ({ book }) => {
   const bookRemove = () => dispatch(removeBooksFromAPI(book.item_id));
 
   return (
-    <li className="flex flex-col gap-12 items-center bg-white w-fit m-auto md:w-full  md:flex-row justify-between rounded-sm px-7 py-8 shadow-md">
+    <li className="flex flex-col gap-12 items-center bg-white w-fit  md:w-full  md:flex-row justify-between rounded-sm my-1 px-7 py-8 shadow-md">
       <div className="flex flex-col gap-6 justify-between items-start w-72">
         <div className="flex flex-col gap-0">
           <div className="font-bold text-sm text-black-two opacity-50">{book.category}</div>

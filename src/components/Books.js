@@ -13,12 +13,9 @@ const Books = () => {
 
   if (books.length) {
     return (
-      <div className="books">
+      <div className="flex flex-col pb-100 pt-12 px-6 md:px-24 gap-4 my-10 bg-dirty-white">
         {books.map((book) => (
           <BookCard
-            // author={book.author}
-            // title={book.title}
-            // category={book.category}
             key={book.item_id}
             book={book}
           />

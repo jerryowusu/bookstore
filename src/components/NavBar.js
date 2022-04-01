@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom';
 import { ImUser } from 'react-icons/im';
 
 const NavBar = () => (
-  <header className="flex justify-between p-6 md:px-24 w-full shadow-md min-h-24">
-    <nav className="flex gap-10 flex-col md:flex-row">
+  <header className="flex bg-white justify-between p-6 md:px-24 w-full shadow-md min-h-24">
+    <nav className="container mx-auto h-20 flex items-center gap-5">
       <NavLink to="/">
-        <h1 className="h-full flex  items-center text-3xl font-bold text-azure mr-2">
+        <h1 className="text-3xl font-bold text-blue-500">
           Bookstore CMS
         </h1>
       </NavLink>
@@ -25,7 +25,7 @@ const NavBar = () => (
       type="button"
       className="h-11 w-11 text-3xl flex items-center p-2 text-azure rounded-full border-2 border-grey-border"
     >
-      <ImUser />
+      <ImUser className="text-blue-500" />
     </button>
   </header>
 );

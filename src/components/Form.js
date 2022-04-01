@@ -38,7 +38,7 @@ const Form = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 ">
+    <div className="flex flex-col gap-4 mx-20 ">
       <h2 className="font-bold text-lg text-gray-500">Add New Book</h2>
       <form
         className="flex items-center flex-wrap gap-3"
