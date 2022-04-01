@@ -12,8 +12,10 @@ const CategoriesPage = () => {
   };
 
   return (
-    <div className="h-[80vh] w-full flex flex-col gap-3   justify-center items-center">
-      Categories Page
+    <div className=" w-full flex flex-col gap-3 justify-center items-center">
+      <h2 className="bg-inherit  p-2 text-center text-3xl my-20 text-blue-400 grow">
+        Categories Page
+      </h2>
       <br />
       <button
         type="button"

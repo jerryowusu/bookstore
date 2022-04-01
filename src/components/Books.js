@@ -24,8 +24,9 @@ const Books = () => {
     );
   }
   return (
-    <div className="nobook">
+    <div className="bg-inherit w-fit h-8 p-2 text-center text-3xl my-20 mx-auto text-blue-400 grow">
       <h2>No books to show</h2>
+      <p className="text-xl">Please enter books details in the form below</p>
     </div>
   );
 };
