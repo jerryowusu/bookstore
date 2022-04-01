@@ -7,20 +7,24 @@ const CategoriesPage = () => {
 
   const dispatch = useDispatch();
 
+  const onClick = () => {
+    dispatch(checkStatus());
+  };
+
   return (
-    <div>
+    <div className="h-[80vh] w-full flex flex-col gap-3   justify-center items-center">
       Categories Page
       <br />
       <button
         type="button"
-        className="categories-btn"
-        onClick={() => {
-          dispatch(checkStatus('Under Construction, See you soon'));
-        }}
+        className="w-45 h-12 px-4 grid place-content-center font-serif border rounded bg-blue-500 text-white uppercase text-sm font-bold"
+        onClick={onClick}
       >
         Check status
       </button>
-      {status}
+      <span className=" bg-inherit w-fit h-8 p-2 text-center text-3xl text-green-500">
+        {status}
+      </span>
     </div>
 
   );
