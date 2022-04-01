@@ -9,8 +9,8 @@ const BookCard = ({ book }) => {
   const bookRemove = () => dispatch(removeBooksFromAPI(book.item_id));
 
   return (
-    <li className="flex flex-col flex-wrap gap-4 items-center bg-white w-fit  md:w-full  md:flex-row justify-between rounded-sm my-1 px-7 py-8 shadow-md">
-      <div className="flex flex-col gap-6 justify-between items-start w-72">
+    <li className="flex flex-col flex-wrap gap-1 items-center bg-white w-fit  md:w-full  md:flex-row justify-between rounded-sm my-1 px-7 py-8 shadow-md">
+      <div className="flex flex-col gap-4 justify-between items-start w-72">
         <div className="flex flex-col gap-0">
           <div className="font-bold text-sm text-black-two opacity-50 capitalize">{book.category}</div>
           <div className="text-xl font-bold font-roboto capitalize">{book.title}</div>
@@ -31,7 +31,7 @@ const BookCard = ({ book }) => {
           <button type="button" className="text-sm text-[#4386bf] font-light text-azure font-roboto cursor-pointer">Edit</button>
         </div>
       </div>
-      <div className="border-r pr-12 flex justify-center items-center gap-4 self-center ">
+      <div className="border-r pr-10 flex justify-center items-center gap-2 self-center ">
         <svg className="w-20" fill="none" stroke="currentColor" strokeWidth="7" viewBox="0 0 100 100">
           <path className="text-gray-200" strokeDasharray="250,0" d="M50 10a40 40 0 0 1 0 80 40 40 0 0 1 0-80" />
           <path className="text-blue-500" strokeDasharray="180,180" d="M50 10a40 40 0 0 1 0 80 40 40 0 0 1 0-80" />
@@ -50,7 +50,7 @@ const BookCard = ({ book }) => {
         </div>
       </div>
 
-      <div className="flex flex-col justify-center gap-2 font-serif sm:pl-8 md:pl-12">
+      <div className="flex flex-col justify-center gap-1 font-serif sm:pl-8 md:pl-12">
         <p className="text-gray-400 text-sm uppercase">
           Current chapter
         </p>
@@ -59,7 +59,7 @@ const BookCard = ({ book }) => {
         </p>
         <button
           type="button"
-          className="w-44 px-4 py-2 mt-4 grid place-content-center font-serif border rounded bg-blue-500 text-white uppercase text-sm"
+          className="w-42 px-4 py-2 mt-4 grid place-content-center font-serif border rounded bg-blue-500 text-white uppercase text-sm"
         >
           Update Progress
         </button>
