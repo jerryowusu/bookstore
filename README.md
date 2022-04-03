@@ -44,7 +44,7 @@ Open index.html in Chrome (or any browser of your choice)
 
 - GitHub: [@jerryowusu](https://github.com/jerryowusu)
 - Twitter: [@jerryowusu11](https://twitter.com/jerryowusu11)
-- LinkedIn: [Jerry Owusu](https://www.linkedin.com/in/jeremiah-owusu-b50a70173/)
+- LinkedIn: [Jerry Owusu](https://www.linkedin.com/in/jerry-owusu/)
 
 
 
